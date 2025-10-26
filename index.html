@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Процесс совместной работы над проектом</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f8fa;
+            color: #24292e;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2b3137 0%, #24292e 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 4px solid #0366d6;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #0366d6;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .step {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
+        }
+        
+        .step:nth-child(odd) {
+            left: 0;
+            animation-delay: 0.2s;
+        }
+        
+        .step:nth-child(even) {
+            left: 50%;
+            animation-delay: 0.4s;
+        }
+        
+        .step-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #0366d6;
+        }
+        
+        .step:nth-child(even) .step-content {
+            border-left: none;
+            border-right: 4px solid #0366d6;
+        }
+        
+        .step h3 {
+            color: #0366d6;
+            margin-bottom: 10px;
+        }
+        
+        .step::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid #0366d6;
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+        }
+        
+        .step:nth-child(odd)::after {
+            right: -10px;
+        }
+        
+        .step:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .code-block {
+            background-color: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 16px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        
+        .screenshot {
+            max-width: 100%;
+            border-radius: 6px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            background-color: #2b3137;
+            color: white;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .step {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .step:nth-child(even) {
+                left: 0;
+            }
+            
+            .step:nth-child(odd)::after,
+            .step:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Процесс совместной работы над проектом</h1>
+            <p class="subtitle">Пошаговое описание выполнения задания по организации совместной работы в GitHub</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="timeline">
+            <div class="step">
+                <div class="step-content">
+                    <h3>Шаг 1: Приглашение друга в проект</h3>
+                    <p>Я зашёл в настройки своего репозитория на GitHub и перешёл в раздел "Collaborators". Затем нажал кнопку "Add people" и ввёл имя пользователя моего друга, которого хотел пригласить к совместной работе над нашим крутым проектом!</p>
+                    <div class="code-block">
+                        Settings → Collaborators → Add people → Ввод username друга
+                    </div>
+                    <p>После этого система отправила ему приглашение, которое он с радостью принял!</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-content">
+                    <h3>Шаг 2: Создание задачи в Issues</h3>
+                    <p>В репозитории проекта я перешёл во вкладку "Issues" и создал новую интересную задачу, подробно описав:</p>
+                    <ul>
+                        <li>Что нужно сделать (например, добавить новую функцию или исправить баг)</li>
+                        <li>Требования к выполнению</li>
+                        <li>Сроки выполнения</li>
+                    </ul>
+                    <div class="code-block">
+                        Issues → New issue → Заполнение заголовка и описания → Assignee: друг → Submit new issue
+                    </div>
+                    <p>После создания задачи я назначил её своему другу, чтобы он получил уведомление и мог приступить к работе!</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-content">
+                    <h3>Шаг 3: Друг создаёт новую ветку</h3>
+                    <p>Мой друг, приняв приглашение и ознакомившись с задачей, с энтузиазмом создал новую ветку для работы над ней. Он использовал понятное название ветки, связанное с задачей.</p>
+                    <div class="code-block">
+                        git checkout -b feature/new-functionality
+                    </div>
+                    <p>В этой ветке он выполнил всю необходимую работу по задаче, регулярно коммитя изменения и держа меня в курсе прогресса.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-content">
+                    <h3>Шаг 4: Создание Pull Request</h3>
+                    <p>После завершения работы над задачей, мой друг создал Pull Request, в котором:</p>
+                    <ul>
+                        <li>Указал связь с задачей (используя ключевые слова, например "Closes #1")</li>
+                        <li>Подробно описал внесённые изменения</li>
+                        <li>Попросил провести код-ревью</li>
+                    </ul>
+                    <div class="code-block">
+                        New Pull Request → Выбор ветки друга для сравнения с master → 
+                        Заполнение заголовка и описания → Create Pull Request
+                    </div>
+                    <p>После создания PR он перевёл задачу обратно на меня для проверки и ждал обратной связи.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-content">
+                    <h3>Шаг 5: Проверка и код-ревью</h3>
+                    <p>Я внимательно и с интересом проверил предложенные изменения:</p>
+                    <ul>
+                        <li>Просмотрел код на соответствие стандартам</li>
+                        <li>Проверил выполнение всех требований задачи</li>
+                        <li>Протестировал функциональность</li>
+                    </ul>
+                    <p>В процессе проверки я оставил конструктивные комментарии с предложениями по улучшению и задал несколько вопросов для лучшего понимания.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-content">
+                    <h3>Шаг 6: Принятие изменений и удаление ветки</h3>
+                    <p>После того, как все замечания были учтены и код соответствовал требованиям, я принял Pull Request, выполнив слияние изменений в основную ветку.</p>
+                    <div class="code-block">
+                        Pull Request → Merge pull request → Confirm merge
+                    </div>
+                    <p>После успешного слияния я удалил ветку, в которой велась работа над задачей, чтобы поддерживать репозиторий в чистоте.</p>
+                    <div class="code-block">
+                        Delete branch
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="background-color: #e6f7ff; padding: 20px; border-radius: 8px; margin-top: 40px;">
+            <h2 style="color: #0366d6; margin-bottom: 15px;">Выводы</h2>
+            <p>В процессе выполнения этого задания я:</p>
+            <ul>
+                <li>Освоил процесс организации совместной работы над проектом в GitHub.</li>
+                <li>Научился эффективно ставить задачи и проводить код-ревью, что оказалось очень интересным.</li>
+                <li>Понял важность правильного именования веток и оформления Pull Request для удобства работы.</li>
+                <li>Убедился в полезности системы Issues для отслеживания задач и планирования работы.</li>
+            </ul>
+            <p>Этот опыт будет полезен в будущем при работе в команде над реальными проектами.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Демонстрация процесса совместной работы над проектом в GitHub</p>
+            <p>Сделал работу: Чиркин Елизар А.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Анимация появления элементов при прокрутке
+        const steps = document.querySelectorAll('.step');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        steps.forEach(step => {
+            step.style.animationPlayState = 'paused';
+            observer.observe(step);
+        });
+    </script>
+</body>
+</html>
